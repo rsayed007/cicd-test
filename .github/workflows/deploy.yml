@@ -16,11 +16,11 @@ jobs:
       - name: Copy project to server via SSH
         uses: appleboy/scp-action@v0.1.4
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
+          host: "20.47.98.12"
+          username: "ubuntu"
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "."  # optionally limit to src folders
-          target: ${{ secrets.SSH_PATH }}
+          target: "/var/www/html/cicd-test"
 
       # Optional: run a script on the server
       # - name: Run post-deploy commands
