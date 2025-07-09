@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ITT-Dev-Runner
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
