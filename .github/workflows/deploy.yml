@@ -21,7 +21,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "."  # optionally limit to src folders
           target: "/var/www/html/cicd-test"
-      - name: Copy project to server via SSH
+      - name: Copy project to server 2 via SSH
         uses: appleboy/scp-action@v0.1.4
         with:
           host: "20.47.98.12"
