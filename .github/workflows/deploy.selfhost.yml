@@ -1,0 +1,43 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main  # or 'production' or any branch you want
+
+jobs:
+  deploy:
+    # runs-on: ubuntu-latest
+    runs-on: self-hosted
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Copy project to server via SSH
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: "158.220.89.219"
+          username: "root"
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "."  # optionally limit to src folders
+          target: "/var/www/html/cicd-test"
+      # - name: Copy project to server 2 via SSH
+      #   uses: appleboy/scp-action@v0.1.4
+      #   with:
+      #     host: "20.47.98.12"
+      #     username: "ubuntu"
+      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     source: "."  # optionally limit to src folders
+      #     target: "/var/www/html/cicd-test-2"
+
+      # Optional: run a script on the server
+      # - name: Run post-deploy commands
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: ${{ secrets.SSH_HOST }}
+      #     username: ${{ secrets.SSH_USER }}
+      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     script: |
+      #       cd ${{ secrets.SSH_PATH }}
+      #       php artisan cache:clear
