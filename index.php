@@ -1,5 +1,5 @@
 <?php
 
-echo 'this is a test cicd repo from main branch';
+echo 'this is a test cicd repo from staging branch';
 echo '\n \n';
-echo 'after adding CICD 6';
+echo 'after adding CICD 7';
