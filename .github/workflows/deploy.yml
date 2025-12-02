@@ -23,7 +23,7 @@ jobs:
         with:
           host: "109.123.232.6"
           username: "root"
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.ITT_GIT_SSH_PRIVATE_KEY }}
           source: "."  # optionally limit to src folders
           target: "/var/www/html/cicd-test"
 
