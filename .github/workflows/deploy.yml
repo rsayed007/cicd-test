@@ -21,18 +21,18 @@ jobs:
         if: github.ref == 'refs/heads/main'
         uses: appleboy/scp-action@v0.1.4
         with:
-          host: "158.220.89.219"
+          host: "109.123.232.6"
           username: "root"
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "."  # optionally limit to src folders
           target: "/var/www/html/cicd-test"
 
-      - name: Deploy staging -> Server B
-        if: github.ref == 'refs/heads/staging'
-        uses: appleboy/scp-action@v0.1.4
-        with:
-          host: "158.220.89.219"
-          username: "root"
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "."  # optionally limit to src folders
-          target: "/var/www/html/cicd-test-2"
+      # - name: Deploy staging -> Server B
+      #   if: github.ref == 'refs/heads/staging'
+      #   uses: appleboy/scp-action@v0.1.4
+      #   with:
+      #     host: "158.220.89.219"
+      #     username: "root"
+      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     source: "."  # optionally limit to src folders
+      #     target: "/var/www/html/cicd-test-2"
